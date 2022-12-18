@@ -1,1 +1,7 @@
 <h1>vote.html</h1>
+{{question.question}}
+{% for option in options %}
+<li>
+{{option.option}}
+</li>
+{% endfor %}
