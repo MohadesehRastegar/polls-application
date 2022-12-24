@@ -6,5 +6,5 @@ app_name= 'pollsapp'
 urlpatterns = [
     path('',index,name='index'),
     path('vote/<int:pk>',vote,name='vote'),
-    path('resualt',resualt,name='result')
+    path('result/<int:pk>',result,name='result')
 ]

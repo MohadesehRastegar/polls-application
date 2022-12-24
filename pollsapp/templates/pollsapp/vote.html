@@ -1,7 +1,22 @@
-<h1>vote.html</h1>
+{% extends 'pollsapp/base.html' %}
+{% block content %}
 {{question.question}}
-{% for option in options %}
+<form method="POST" action="{% url 'pollsapp:result' question.id%}">
+{% csrf_token %}
+
+    <ul>{% for option in options %}
+
 <li>
+    <lible>
+<input type="radio" name="choice" value="{{option.id}}">
 {{option.option}}
+
+    </lible>
+    
 </li>
 {% endfor %}
+
+</ul>
+<input type="submit" value="submit">
+</form>
+{% endblock %}

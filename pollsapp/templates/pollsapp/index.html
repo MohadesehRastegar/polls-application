@@ -1,5 +1,8 @@
-<h1>index.html</h1>
+{% extends 'pollsapp/base.html' %}
+
+{% block content %}
 {% for question in questions %}
 
 <a href="{% url  'pollsapp:vote' question.id  %}"><ul>{{question.question}}</ul></a>
 {% endfor %}
+{% endblock content %}
