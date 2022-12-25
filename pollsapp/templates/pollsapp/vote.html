@@ -1,12 +1,17 @@
 {% extends 'pollsapp/base.html' %}
 {% block content %}
-{{question.question}}
+<div class="container">
+    <h4>انتخاب کنید</h4>
+    <ul class="list-group">
+
+    <li class="list-group-item list-group-item-info">{{question.question}}</li>
 <form method="POST" action="{% url 'pollsapp:result' question.id%}">
 {% csrf_token %}
 
-    <ul>{% for option in options %}
+    
 
-<li>
+<li class="list-group"> {% for option in options %}
+    <li class="list-group-item list-group-item-action">
     <lible>
 <input type="radio" name="choice" value="{{option.id}}">
 {{option.option}}
@@ -15,8 +20,12 @@
     
 </li>
 {% endfor %}
+</li>
 
-</ul>
-<input type="submit" value="submit">
+
+<input type="submit" value="submit" class="btn btn-outline-primary">
+
 </form>
+</ul>
+</div>
 {% endblock %}

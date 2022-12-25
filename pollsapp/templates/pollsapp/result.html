@@ -1,17 +1,17 @@
 {% extends 'pollsapp/base.html' %}
 {% block content %}
 
-<ul>{% for option in options %}
+<div class="container">
     
-    <li>
-        <lible>
-    {% comment %} <input type="radio" name="choice" value="{{option.id}}"> {% endcomment %}
-    <h1>{{option.option}}...
-    {{option.percent}}
-</h1>
+    <h5>{{question.question}}</h5>
+<ul class="list-group">{% for option in options %}
     
-        </lible>
-        
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+       
+    
+    {{option.option}}
+    <span class="badge bg-primary rounded-pill">{{option.percent}}%</span>
+      
     </li>
 
     {% endfor %}
@@ -19,3 +19,4 @@
     
     </ul>
     {% endblock %}
+</div>

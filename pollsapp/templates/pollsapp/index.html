@@ -1,8 +1,15 @@
 {% extends 'pollsapp/base.html' %}
 
 {% block content %}
-{% for question in questions %}
+<div class="container">
+    <h3>سوال مورد نظر را انتخاب کنید</h3>
 
-<a href="{% url  'pollsapp:vote' question.id  %}"><ul>{{question.question}}</ul></a>
+{% for question in questions %}
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action list-group-item-info" href="{% url  'pollsapp:vote' question.id  %}">{{question.question}}</a>
+    </div>
+
 {% endfor %}
+</div>
+
 {% endblock content %}
